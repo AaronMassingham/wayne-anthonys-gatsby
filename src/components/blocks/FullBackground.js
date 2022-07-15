@@ -1,9 +1,12 @@
 import React from 'react'
 import { motion } from "framer-motion"
 
+//Styles
+import { background } from '../blocks/fullbackground.module.css'
+
 const FullBackground = ({ children }) => {
 
-    const background = {
+    const backgroundAnimation = {
         initial: { 
           opacity: 0,
           scale:1
@@ -24,7 +27,7 @@ const FullBackground = ({ children }) => {
         }
       }
     
-      const content = {
+      const contentAnimation = {
         initial: { 
           opacity: 0,
           x:100
@@ -49,8 +52,8 @@ const FullBackground = ({ children }) => {
   return (
     <section className='overflow-hidden'>
       <motion.div
-          className='background'
-          variants={background}
+          className={ background }
+          variants={ backgroundAnimation }
           initial="initial"
           animate="animate"
           exit="exit"
@@ -58,7 +61,7 @@ const FullBackground = ({ children }) => {
         </motion.div>
         <motion.div
             className='content'
-            variants={content}
+            variants={contentAnimation}
             initial="initial"
             animate="animate"
             exit="exit"

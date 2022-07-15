@@ -1,33 +1,21 @@
-import React from 'react'
+import React, { useRef,useLayoutEffect } from 'react'
+import gsap from 'gsap'
 
-import { motion } from "framer-motion"
+//Style 
+import { animatedBg, bg } from '../background/background.module.css'
 
 export default function Background() {
 
-  const container = {
-    initial: { 
-      opacity: 0,
-      scale:.8
-    },
-    animate: {
-      opacity: 1,
-      scale:1
-    },
-    exit: {
-      opacity: 0,
-      scale:.8
-    }
-  }
+  const backgroundAnimation = useRef();
+
+  useLayoutEffect(() => {
+    gsap.to(backgroundAnimation.current, {x: '900px', duration:60, ease: "none", repeat: -1});
+  },[]);
 
   return (
-      <motion.div
-        className='background'
-        variants={container}
-        initial="initial"
-        animate="animate"
-        exit="exit"
-      >
-      </motion.div>
+    <div className={ animatedBg }>
+      <div className={ bg } ref={ backgroundAnimation }></div>
+    </div>
 
   )
 }

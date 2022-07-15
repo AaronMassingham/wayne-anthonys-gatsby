@@ -1,6 +1,9 @@
 import React from "react"
 
+//Components
 import Header from "../header/Header"
+
+//Styles
 import '../../styles/style.css'
 
 const Layout = ({ children }) => {
@@ -11,6 +14,7 @@ const Layout = ({ children }) => {
         <Header />
         <main>
           { children }
+
         </main>
       </div>
     </>
