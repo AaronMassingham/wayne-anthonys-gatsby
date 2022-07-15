@@ -1,0 +1,37 @@
+.nav {
+    font-family: var(--chonkyFont);
+    height:100%;
+    justify-content: space-evenly;
+}
+
+.nav a {
+    text-decoration: none;
+    font-size:1.5rem;
+    transition: all 0.2s ease;
+    color:var(--bodyTextcolour);
+}
+
+.nav a.nav_active, .nav a:hover {
+    color:var(--primaryColour);
+}
+
+.burger_button {
+    background: transparent;
+    padding: unset;
+    height: 3rem;
+    width: 3rem;
+    position: absolute;
+    z-index: 11;
+    bottom: -1.5rem;
+    left: 50%;
+    transform: translateX(-1.5rem);
+    border-radius: 100%;
+    border: 1px solid var(--primaryColour);
+    cursor: pointer;
+}
+
+@media screen and (min-width: 770px) {
+    .burger_button {
+        display:none
+    }
+}

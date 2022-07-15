@@ -1,0 +1,126 @@
+.header {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 100vw;
+	height: 100vh;
+	left: 0;
+	top: 0;
+	position: fixed;
+	z-index: 100;
+	padding: var(--mobilePadding);
+	z-index: var(--aboveAll);
+}
+
+.nav_container > div {
+	padding: 3vh 0;
+}
+.nav_container > div:last-child {
+	padding: 3rem 0 0 0;
+}
+
+.header h2 {
+	margin: unset;
+	color: var(--primaryColour);
+}
+
+.copyright {
+	font-family: var(--standardFont);
+	font-size: 75%;
+}
+
+.copyright span:nth-child(even),
+.copyright a {
+	color: var(--primaryColour);
+	text-decoration: none;
+}
+
+.nav_container > div:first-child {
+	flex: 1;
+}
+.nav_container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
+	position: relative;
+	z-index: 10;
+}
+
+.header.navOpen > .nav_container {
+	opacity: 1;
+	transform: translateY(0);
+	transition: all 0.5s ease 0.5s;
+}
+
+.header.navClosed > .nav_container {
+	opacity: 0;
+	transform: translateY(50px);
+	transition: all 0.5s ease;
+    pointer-events: none;
+}
+
+.backdrop {
+	background: black;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 9;
+}
+
+.backdrop.navOpen {
+	transform: translateY(0);
+	transition: all 0.5s ease;
+}
+
+.backdrop.navClosed {
+	transform: translateY(-100vh);
+	transition: all 0.5s ease 0.5s;
+}
+
+@media screen and (min-width: 770px) {
+	.header {
+		width: 30vw;
+		background: var(--darkColour);
+	}
+
+	.backdrop {
+		display: none;
+	}
+
+	.header.navOpen > .nav_container {
+		opacity: 1;
+		transform: translateY(0);
+		transition: all 0.5s ease 0.5s;
+	}
+
+	.header.navClosed > .nav_container {
+		opacity: 1;
+		transform: unset;
+		transition: unset;
+        pointer-events: unset;
+	}
+	.nav_container > div:last-child {
+		flex-direction: column;
+	}
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1470px) {
+	.copyright span:nth-child(even) {
+		display:none
+	}
+}
+
+@media screen and (min-width: 1100px) {
+	.header {
+		padding: var(--desktopPadding);
+	}
+}
+
+@media screen and (min-width: 1470px) {
+	.nav_container > div:last-child {
+		flex-direction: row;
+	}
+}
